@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FruitsAndVegetablesApp.ViewModels
 {
-    public class FoodDBConnector:IDBConncetor
+    public class FoodDBConnector:IDBConnector
     {
         public string ConnectionString { get; set; }
 
@@ -15,14 +16,14 @@ namespace FruitsAndVegetablesApp.ViewModels
             ConnectionString = connectionString;
         }
 
-        public void Connect()
+        public SqlConnection Connect()
         {
-            throw new NotImplementedException();
+            return new SqlConnection(ConnectionString);
         }
 
-        public void Disconnect()
+        public void Disconnect(SqlConnection connection)
         {
-            throw new NotImplementedException();
+            connection.Close();
         }
     }
 }

@@ -20,11 +20,11 @@ namespace FruitsVegetablesDB
                 try
                 {
                     string str = @"CREATE TABLE Food (
-                                    Id int NOT NULL PRIMARY KEY,
+                                    Id int NOT NULL PRIMARY KEY IDENTITY(1,1),
                                     Name varchar(255),
                                     Type varchar(255),
                                     Color varchar(255),
-                                    Calority varchar(255)
+                                    Calority int
                                 );";
                     SqlCommand cmd = new SqlCommand(str, con);
                     cmd.ExecuteNonQuery();
